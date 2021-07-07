@@ -1,0 +1,216 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* import font */
+@import url('//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
+
+
+
+:root {
+/* colors */
+    --color_very-dark: hsl(238, 29%, 16%);
+    --color_gradient_soft-violet: hsl(273, 75%, 66%);
+    --color_gradient_soft-blue: hsl(240, 73%, 65%);
+    --txt_very-dark-blue: hsl(237, 12%, 33%);
+    --txt_dark-bleu: hsl(240, 6%, 50%);
+    --divider_light-blue: hsl(240, 5%, 91%);
+    --color_soft-red: hsl(14, 88%, 65%);
+
+}
+
+
+
+body {
+    font-size: 0.75em;
+    font-family: 'Kumbh Sans', sans-serif;
+    background: linear-gradient(var(--color_gradient_soft-violet) ,var(--color_gradient_soft-blue)); 
+    background-attachment:fixed;
+}
+
+.container {
+    background-color: white;
+    height: 509px;
+    width: 920px;
+    margin: 129px auto 50px; /*seems taht challenge is not margin auto */
+    border-radius: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 20px 25px -5px var(--color_very-dark); /* not the same color as challenge :( */
+
+}
+
+.container ::-webkit-scrollbar {
+    background: transparent;  /* make scrollbar invisible */
+ }
+ 
+ 
+/* div containing the 2 bg images */
+.images {
+    flex-grow: 1;
+    height: 100%;
+    background-image: url(../images/illustration-woman-online-desktop.svg),
+                        url(../images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto, 200%;
+    background-position-x: -83px, -562px;
+    background-position-y: 70px, -291px;
+
+}
+
+/* @ box floating around */
+.box {
+    position: relative;
+    height: 184px;
+    top: 204px;
+    left: -92px;
+    }
+
+/* div containing all the questions */
+.FAQ {
+    font-size: 1.1em;
+    width: 444px;
+    height: 500px;
+    box-sizing: border-box;
+    padding: 4.4rem 6rem 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+H1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.questions {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: scroll; /* Need scrollbar if all questions are deploy but is invisible due to .container ::webkit-scrollbar */
+}
+
+H2 {
+    font-weight: normal;
+    font-size: 1.05em;
+    flex: 1 1 auto;
+    padding-top: 3px;
+}
+
+p{
+    font-weight: lighter;
+    font-size: 0.9em;
+    color: var(--txt_dark-bleu);
+    line-height: 1.5em;
+}
+
+.arrow {
+    height: 7px;
+    width: 10px;
+}
+
+/* use to rotate arrow when detail is open */
+.rotate {
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+/* manage the box of a question */
+details {
+    width: 100%;
+    position: relative;
+    margin-top: 19px;
+    margin-bottom: 18px;
+}
+
+details  summary {
+    width: 100%;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    
+  }
+
+details::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: -18px;
+    background-color: var(--divider_light-blue);
+}
+
+
+  /* hide the arrow by default */
+details .hide {
+    display: none;
+}
+
+/* manage arrow in the box when open */
+details[open] .show {
+    display: none;
+}
+
+details[open] .hide {
+    display: block;
+}
+
+/* put the question in bold when open */
+details[open]  H2 {
+    font-weight: bold;
+  }
+  
+
+  @media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        width: 327px;
+        height: 535px;
+        justify-content: flex-end;
+        margin-top: 150px;
+    }
+
+    
+    .images {
+        width: 100%;
+        min-height: 300px;
+        background-size: 75%, 75%;
+        background-position: top 30px right 50%, top 5px right 50%;
+    }
+
+
+    .box {
+        height: 90px;
+        position: relative;
+        top: 103px;
+        left: 35px;
+        }
+
+    .FAQ {
+        font-size: 1em;
+        width: 279px;
+        padding: 0px;
+        min-height: 380px;
+        align-content: flex-start;
+    }
+    H1 {
+        text-align: center;
+    }
+}
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin: auto;
+    }
+
+    .attribution a {
+        color: white;
+    }
+
